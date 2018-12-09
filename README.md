@@ -22,7 +22,8 @@ Basic java project for integration with Play, Akka, Spark and Cassandra
 	<ol>
 		<li/>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">./pasta_do_spark/sbin/start-master.sh</font></p>
+		<font size="3" style="font-size: 12pt">Executar no prompt:
+		./pasta_do_spark/sbin/start-master.sh</font></p>
 		<li/>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 		<font size="3" style="font-size: 12pt">//Para verificar endereço e
@@ -31,17 +32,21 @@ Basic java project for integration with Play, Akka, Spark and Cassandra
 		URL com o link que será servido pelo spark.</font></p>
 		<li/>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">./pasta_do_spark/sbin/start-slave.sh
-		spark://localhost:7077  //Trocar localhost:7077 pela URL encontrada
-		no link acima</font></p>
+		<font size="3" style="font-size: 12pt">Executar no prompt:
+		./pasta_do_spark/sbin/start-slave.sh spark://localhost:7077 
+		//Trocar localhost:7077 pela URL encontrada no link acima</font></p>
 	</ol>
 	<li/>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 	<font size="3" style="font-size: 12pt">O servidor Cassandra também
-	já deve estar em execução após a sua instalação. Além disso, 
+	já deve estar em execução após a sua instalação. Além disso,
 	criar um keyspace e uma tabela com dados para teste:</font></p>
 	<ol>
 		<ol>
+			<li/>
+<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+			<font size="3" style="font-size: 12pt">Para entrar no console
+			Cassandra, executar no prompt: cqlsh</font></p>
 			<li/>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 			<font size="3" style="font-size: 12pt">CREATE KEYSPACE teste WITH
@@ -66,7 +71,7 @@ Basic java project for integration with Play, Akka, Spark and Cassandra
 	</ol>
 	<li/>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-	<font size="3" style="font-size: 12pt">sbt new
+	<font size="3" style="font-size: 12pt">Executar no prompt: sbt new
 	playframework/play-java-seed.g8</font></p>
 	<li/>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
@@ -83,42 +88,37 @@ Basic java project for integration with Play, Akka, Spark and Cassandra
 	<li/>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 	<font size="3" style="font-size: 12pt">acrescentar ao build.sbt:</font></p>
+</ol>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">libraryDependencies +=
+&quot;com.fasterxml.jackson.module&quot; %% &quot;jackson-module-scala&quot;
+% &quot;2.9.6&quot;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">libraryDependencies +=
+&quot;com.typesafe.akka&quot; %% &quot;akka-actor&quot; % &quot;2.5.18&quot;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">libraryDependencies +=
+&quot;org.apache.spark&quot; %% &quot;spark-core&quot; % &quot;2.4.0&quot;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">libraryDependencies +=
+&quot;com.datastax.cassandra&quot; % &quot;cassandra-driver-core&quot;
+% &quot;3.6.0&quot;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">libraryDependencies +=
+&quot;com.datastax.cassandra&quot; % &quot;cassandra-driver-mapping&quot;
+% &quot;3.6.0&quot;</font></p>
+<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	Alterar a versão do scala:</font></p>
+<ol>
 	<ol>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">libraryDependencies +=
-		&quot;com.fasterxml.jackson.module&quot; %% &quot;jackson-module-scala&quot;
-		% &quot;2.9.6&quot;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">libraryDependencies +=
-		&quot;com.typesafe.akka&quot; %% &quot;akka-actor&quot; % &quot;2.5.18&quot;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">libraryDependencies +=
-		&quot;org.apache.spark&quot; %% &quot;spark-core&quot; % &quot;2.4.0&quot;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">libraryDependencies +=
-		&quot;com.datastax.cassandra&quot; % &quot;cassandra-driver-core&quot;
-		% &quot;3.6.0&quot;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">libraryDependencies +=
-		&quot;com.datastax.cassandra&quot; % &quot;cassandra-driver-mapping&quot;
-		% &quot;3.6.0&quot;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">Alterar a versão do scala:</font></p>
-		<ol>
-			<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+		<ol start="0">
+			<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 			<font size="3" style="font-size: 12pt">scalaVersion := “2.11.12”</font></p>
 		</ol>
 	</ol>
 	<li/>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-	<font size="3" style="font-size: 12pt">digitar “sbt” no prompt
+	<font size="3" style="font-size: 12pt">Executar “sbt” no prompt
 	para iniciar (sempre que alterar o build.sbt e já estiver no
 	console, executar reload ou fechar o console e entrar novamente</font></p>
 	<ol>
@@ -150,20 +150,15 @@ Basic java project for integration with Play, Akka, Spark and Cassandra
 	<font size="3" style="font-size: 12pt">Alterar arquivo de
 	configuração da aplicação (application.conf):</font></p>
 	<ol>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+		<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 		<font size="3" style="font-size: 12pt">akka {</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+		<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 		  <font size="3" style="font-size: 12pt">loglevel = &quot;ERROR&quot;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+		<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 		<font size="3" style="font-size: 12pt">}</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+		<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 		<font size="3" style="font-size: 12pt">akka.default-dispatcher.fork-join-executor.pool-size-max=64</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+		<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 		<font size="3" style="font-size: 12pt">akka.actor.debug.receive =
 		on</font></p>
 	</ol>
@@ -172,153 +167,111 @@ Basic java project for integration with Play, Akka, Spark and Cassandra
 	<font size="3" style="font-size: 12pt">Criar uma nova classe java
 	(por exemplo: ActorController.java) dentro do pacote controllers e
 	adicionar:</font></p>
-	<ol>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">package controllers;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import static
-		akka.pattern.Patterns.ask;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import play.mvc.*;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import views.html.*;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import
-		org.apache.spark.api.java.JavaSparkContext;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import akka.actor.ActorRef;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import
-		akka.actor.ActorSystem;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import
-		org.apache.spark.api.java.JavaRDD;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import java.util.Arrays;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import java.util.List;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import
-		java.util.concurrent.CompletionStage;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import
-		org.apache.spark.SparkConf;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import
-		javax.inject.Singleton;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import javax.inject.*;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import
-		scala.compat.java8.FutureConverters;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		</p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">@Singleton</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">public class ActorController
-		extends Controller {</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	static private ActorSystem
-		system;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	@Inject</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	public
-		ActorController(ActorSystem system) {</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">		this.system = system;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	}</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	public
-		CompletionStage&lt;Result&gt; meuMetodo(String msg) {</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">		//Testar Spark</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">		SparkConf conf = new
-		SparkConf(true)//</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">				.setAppName(&quot;MinhaApp&quot;)//</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">				.setMaster(&quot;spark://meucomp.local:7077&quot;);</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">		JavaSparkContext sc = new
-		JavaSparkContext(conf);</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">		List&lt;Integer&gt; data =
-		Arrays.asList(1, 2, 3, 4, 5);</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">		JavaRDD&lt;Integer&gt;
-		distData = sc.parallelize(data);</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">		System.out.println(distData);</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">		sc.close();</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">		</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">		//Testar Akka</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">		ActorRef helloActor =
-		system.actorOf(HelloActor.getProps());</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">		return
-		FutureConverters.toJava(ask(helloActor, msg, 2000))//</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">				.thenApply(response -&gt;
-		ok(actor.render((String) response)));</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	}</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">}</font></p>
-	</ol>
+</ol>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">package controllers;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import static
+akka.pattern.Patterns.ask;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import play.mvc.*;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import views.html.*;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import
+org.apache.spark.api.java.JavaSparkContext;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import akka.actor.ActorRef;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import akka.actor.ActorSystem;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import
+org.apache.spark.api.java.JavaRDD;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import java.util.Arrays;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import java.util.List;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import
+java.util.concurrent.CompletionStage;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import
+org.apache.spark.SparkConf;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import javax.inject.Singleton;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import javax.inject.*;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import
+scala.compat.java8.FutureConverters;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">@Singleton</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">public class ActorController
+extends Controller {</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	static private ActorSystem
+system;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	@Inject</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	public
+ActorController(ActorSystem system) {</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">		this.system = system;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	}</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	public
+CompletionStage&lt;Result&gt; meuMetodo(String msg) {</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">		//Testar Spark</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">		SparkConf conf = new
+SparkConf(true)//</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">				.setAppName(&quot;MinhaApp&quot;)//</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">				.setMaster(&quot;spark://meucomp.local:7077&quot;);</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">		JavaSparkContext sc = new
+JavaSparkContext(conf);</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">		List&lt;Integer&gt; data =
+Arrays.asList(1, 2, 3, 4, 5);</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">		JavaRDD&lt;Integer&gt;
+distData = sc.parallelize(data);</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">		System.out.println(distData);</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">		sc.close();</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">		</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">		//Testar Akka</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">		ActorRef helloActor =
+system.actorOf(HelloActor.getProps());</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">		return
+FutureConverters.toJava(ask(helloActor, msg, 2000))//</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">				.thenApply(response -&gt;
+ok(actor.render((String) response)));</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	}</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">}</font></p>
+<ol start="11">
 	<li/>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 	<font size="3" style="font-size: 12pt">Duplicar o arquivo
@@ -347,145 +300,113 @@ Basic java project for integration with Play, Akka, Spark and Cassandra
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 	<font size="3" style="font-size: 12pt">Criar uma nova classe (por
 	exemplo: HelloActor.java) que extende de AbstractActor:</font></p>
-	<ol>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">package controllers;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		</p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import akka.actor.*;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import
-		com.datastax.driver.core.Cluster;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import
-		com.datastax.driver.core.Session;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import
-		com.datastax.driver.core.ResultSet;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import
-		com.datastax.driver.core.Row;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">import java.util.Iterator;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		</p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">public class HelloActor
-		extends AbstractActor {</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	private Cluster cluster;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	private Session session;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	public static Props
-		getProps() {</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		        <font size="3" style="font-size: 12pt">return
-		Props.create(HelloActor.class);</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		    <font size="3" style="font-size: 12pt">}</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	public HelloActor() {</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">		cluster =
-		Cluster.builder().addContactPoint(&quot;127.0.0.1&quot;).build();
-		//Alterar 127.0.0.1 pelo endereço IP do servidor Cassandra.</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		        <font size="3" style="font-size: 12pt">session =
-		cluster.connect(&quot;teste&quot;); //Utilizar o nome do keyspace
-		criado no Cassandra</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	}</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		</p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	@Override</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	public Receive
-		createReceive() {</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">		return receiveBuilder()//</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		                <font size="3" style="font-size: 12pt">.match(String.class,
-		s -&gt; {</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		                <font size="3" style="font-size: 12pt">	ResultSet
-		results = session.execute(&quot;SELECT * FROM users WHERE user_id =
-		&quot; + s);</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		                    <font size="3" style="font-size: 12pt">String
-		line = &quot;&quot;;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		                    <font size="3" style="font-size: 12pt">for
-		(Iterator&lt;Row&gt; iterator = results.iterator();
-		iterator.hasNext();) {</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		                        <font size="3" style="font-size: 12pt">Row
-		row = iterator.next();</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		                        <font size="3" style="font-size: 12pt">line
-		+= row.getString(&quot;fname&quot;) + &quot; &quot; +
-		row.getString(&quot;lname&quot;)</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		                                <font size="3" style="font-size: 12pt">+
-		&quot;\n&quot;;</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		                        <font size="3" style="font-size: 12pt">System.out.println(line);</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		                    <font size="3" style="font-size: 12pt">}</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		                    <font size="3" style="font-size: 12pt">sender().tell(line,
-		self());</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		                <font size="3" style="font-size: 12pt">}).build();</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">	}</font></p>
-		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">}</font></p>
-	</ol>
+</ol>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">package controllers;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import akka.actor.*;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import
+com.datastax.driver.core.Cluster;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import
+com.datastax.driver.core.Session;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import
+com.datastax.driver.core.ResultSet;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import
+com.datastax.driver.core.Row;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">import java.util.Iterator;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">public class HelloActor
+extends AbstractActor {</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	private Cluster cluster;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	private Session session;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	public static Props
+getProps() {</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+        <font size="3" style="font-size: 12pt">return
+Props.create(HelloActor.class);</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+    <font size="3" style="font-size: 12pt">}</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	public HelloActor() {</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">		cluster =
+Cluster.builder().addContactPoint(&quot;127.0.0.1&quot;).build();
+//Alterar 127.0.0.1 pelo endereço IP do servidor Cassandra.</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+        <font size="3" style="font-size: 12pt">session =
+cluster.connect(&quot;teste&quot;); //Utilizar o nome do keyspace
+criado no Cassandra</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	}</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	@Override</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	public Receive
+createReceive() {</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">		return receiveBuilder()//</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+                <font size="3" style="font-size: 12pt">.match(String.class,
+s -&gt; {</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+                <font size="3" style="font-size: 12pt">	ResultSet
+results = session.execute(&quot;SELECT * FROM users WHERE user_id = &quot;
++ s);</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+                    <font size="3" style="font-size: 12pt">String
+line = &quot;&quot;;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+                    <font size="3" style="font-size: 12pt">for
+(Iterator&lt;Row&gt; iterator = results.iterator();
+iterator.hasNext();) {</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+                        <font size="3" style="font-size: 12pt">Row
+row = iterator.next();</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+                        <font size="3" style="font-size: 12pt">line
++= row.getString(&quot;fname&quot;) + &quot; &quot; +
+row.getString(&quot;lname&quot;)</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+                                <font size="3" style="font-size: 12pt">+
+&quot;\n&quot;;</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+                        <font size="3" style="font-size: 12pt">System.out.println(line);</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+                    <font size="3" style="font-size: 12pt">}</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+                    <font size="3" style="font-size: 12pt">sender().tell(line,
+self());</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+                <font size="3" style="font-size: 12pt">}).build();</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	}</font></p>
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">}</font></p>
+<ol start="14">
 	<li/>
 <p align="justify" style="margin-bottom: 0cm; line-height: 100%">
 	<font size="3" style="font-size: 12pt"><b>Testar o funcionamento:</b></font></p>
