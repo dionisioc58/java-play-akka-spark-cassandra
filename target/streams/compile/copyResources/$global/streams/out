@@ -1,0 +1,4 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/dionisio/eclipse-workspace-concorrente/java-play-akka-spark-cassandra/conf/routes,/home/dionisio/eclipse-workspace-concorrente/java-play-akka-spark-cassandra/target/scala-2.11/classes/routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/dionisio/eclipse-workspace-concorrente/java-play-akka-spark-cassandra/conf/application.conf,/home/dionisio/eclipse-workspace-concorrente/java-play-akka-spark-cassandra/target/scala-2.11/classes/application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/dionisio/eclipse-workspace-concorrente/java-play-akka-spark-cassandra/conf/logback.xml,/home/dionisio/eclipse-workspace-concorrente/java-play-akka-spark-cassandra/target/scala-2.11/classes/logback.xml)[0m

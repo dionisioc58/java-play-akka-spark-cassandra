@@ -1,0 +1,11 @@
+2018-12-08 23:21:14,729 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-4 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2018-12-08 23:21:14,819 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-4 - Application started (Dev)
+2018-12-08 23:21:19,881 [WARN] from org.apache.spark.util.Utils in application-akka.actor.default-dispatcher-3 - Your hostname, diohp resolves to a loopback address: 127.0.1.1; using 192.168.26.106 instead (on interface wlo1)
+2018-12-08 23:21:19,882 [WARN] from org.apache.spark.util.Utils in application-akka.actor.default-dispatcher-3 - Set SPARK_LOCAL_IP if you need to bind to another address
+2018-12-08 23:21:20,306 [WARN] from org.apache.hadoop.util.NativeCodeLoader in application-akka.actor.default-dispatcher-3 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2018-12-08 23:21:33,595 [INFO] from play.core.server.AkkaHttpServer in pool-10-thread-4 - Stopping server...

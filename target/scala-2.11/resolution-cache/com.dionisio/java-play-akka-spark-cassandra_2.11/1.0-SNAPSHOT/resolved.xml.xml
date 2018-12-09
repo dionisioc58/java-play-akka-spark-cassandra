@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
+	<info organisation="com.dionisio"
+		module="java-play-akka-spark-cassandra_2.11"
+		revision="1.0-SNAPSHOT"
+		status="integration"
+		publication="20181208232032"
+	>
+		<description>
+		java-play-akka-spark-cassandra
+		</description>
+	</info>
+	<configurations>
+		<conf name="compile" visibility="public" description=""/>
+		<conf name="runtime" visibility="public" description="" extends="compile"/>
+		<conf name="test" visibility="public" description="" extends="runtime"/>
+		<conf name="provided" visibility="public" description=""/>
+		<conf name="optional" visibility="public" description=""/>
+		<conf name="universal" visibility="public" description=""/>
+		<conf name="universal-docs" visibility="public" description=""/>
+		<conf name="universal-src" visibility="public" description=""/>
+		<conf name="windows" visibility="public" description=""/>
+		<conf name="docker" visibility="public" description=""/>
+		<conf name="linux" visibility="public" description=""/>
+		<conf name="rpm" visibility="public" description="" extends="linux"/>
+		<conf name="debian" visibility="public" description="" extends="linux"/>
+		<conf name="compile-internal" visibility="private" description="" extends="compile,optional,provided"/>
+		<conf name="runtime-internal" visibility="private" description="" extends="runtime,optional"/>
+		<conf name="test-internal" visibility="private" description="" extends="test,optional,provided"/>
+		<conf name="plugin" visibility="private" description=""/>
+		<conf name="pom" visibility="public" description=""/>
+		<conf name="scala-tool" visibility="private" description=""/>
+		<conf name="docs" visibility="private" description=""/>
+	</configurations>
+	<publications>
+		<artifact name="java-play-akka-spark-cassandra_2.11" type="pom" ext="pom" conf="pom"/>
+		<artifact name="java-play-akka-spark-cassandra_2.11" type="jar" ext="jar" conf="compile"/>
+		<artifact name="java-play-akka-spark-cassandra_2.11" type="src" ext="jar" conf="compile" e:classifier="sources"/>
+		<artifact name="java-play-akka-spark-cassandra_2.11" type="doc" ext="jar" conf="compile" e:classifier="javadoc"/>
+	</publications>
+	<dependencies>
+		<dependency org="org.scala-lang" name="scala-compiler" rev="2.11.12" conf="scala-tool->default,optional(default)"/>
+		<dependency org="org.scala-lang" name="scala-library" rev="2.11.12" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="twirl-api_2.11" rev="1.3.15" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-server_2.11" rev="2.6.20" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-test_2.11" rev="2.6.20" conf="test->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-omnidoc_2.11" rev="2.6.20" conf="docs->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-java-forms_2.11" rev="2.6.20" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="filters-helpers_2.11" rev="2.6.20" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-logback_2.11" rev="2.6.20" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-akka-http-server_2.11" rev="2.6.20" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-guice_2.11" rev="2.6.20" conf="compile->default(compile)"/>
+		<dependency org="com.fasterxml.jackson.module" name="jackson-module-scala_2.11" rev="2.9.6" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-actor_2.11" rev="2.5.18" conf="compile->default(compile)"/>
+		<dependency org="org.apache.spark" name="spark-core_2.11" rev="2.4.0" conf="compile->default(compile)"/>
+		<dependency org="com.datastax.cassandra" name="cassandra-driver-core" rev="3.6.0" conf="compile->default(compile)"/>
+		<dependency org="com.datastax.cassandra" name="cassandra-driver-mapping" rev="3.6.0" conf="compile->default(compile)"/>
+	</dependencies>
+</ivy-module>
