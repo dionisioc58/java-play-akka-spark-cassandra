@@ -137,7 +137,7 @@ Criar uma nova classe (por exemplo: HelloActor.java) que extende de AbstractActo
                     }).build();
     	}
     }
-    
+
 Testar o funcionamento:
     No console do sbt digitar “run”
     Abrir uma página: http://localhost:9000
