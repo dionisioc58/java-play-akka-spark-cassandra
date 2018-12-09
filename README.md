@@ -1,7 +1,7 @@
 # java-play-akka-spark-cassandra
 Basic java project for integration with Play, Akka, Spark and Cassandra
 
-Começando projeto play-akka-spark-cassandra-java
+## Começando projeto play-akka-spark-cassandra-java
 
 1. Colocar os servidores do spark em execução (executar no prompt):
     1. ./pasta_do_spark/sbin/start-master.sh
@@ -132,4 +132,4 @@ Começando projeto play-akka-spark-cassandra-java
         1. ParallelCollectionRDD[0] at parallelize at ActorController.java:39
     5. No navegador deve aparecer um nome e sobrenome de usuário que estão no banco.
 
-Pronto! Seu projeto básico Play com Akka, Spark e Cassandra está funcionando.
+## Pronto! Seu projeto básico Play com Akka, Spark e Cassandra está funcionando.
