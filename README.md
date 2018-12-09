@@ -5,17 +5,17 @@ Começando projeto play-akka-spark-cassandra-java
 
 1. Colocar os servidores do spark em execução (executar no prompt):
     1. ./pasta_do_spark/sbin/start-master.sh
-    2. //Para verificar endereço e porta do servidor após o comando acima, acessar: http://localhost:8080 (Tem uma informação com o link que será servido pelo spark.
-    3. ./pasta_do_spark/sbin/start-slave.sh spark://localhost:7077 
+    2. //Para verificar endereço e porta do servidor após o comando acima, acessar: http://localhost:8080 (Tem uma URL com o link que será servido pelo spark)
+    3. ./pasta_do_spark/sbin/start-slave.sh spark://localhost:7077  //Trocar localhost:7077 pela URL encontrada no link acima
 2. O servidor Cassandra também já deve estar em execução após a sua instalação. Além disso,  criar um keyspace e uma tabela com dados para teste:
     1. CREATE KEYSPACE teste WITH REPLICATION = { 'class': 'SimpleStrategy', 'replication_factor': 1 };
     2. CREATE TABLE teste.users (user_id int, fname TEXT, lname TEXT, PRIMARY KEY (user_id) );
     3. INSERT INTO teste.users(user_id, fname, lname) VALUES(1, 'Nome1', 'Sobrenome1');
     4. INSERT INTO teste.users(user_id, fname, lname) VALUES(2, 'Nome2', 'Sobrenome2');
-3. Alterar ./project/plugins.sbt adicionando:
+3. sbt new playframework/play-java-seed.g8
+4. cd ./pasta criada
+5. Alterar ./project/plugins.sbt adicionando:
     1. addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.6.20")
-4. sbt new playframework/play-java-seed.g8
-5. cd ./pasta criada
 6. acrescentar ao build.sbt:
     1. libraryDependencies += "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.9.6"
     2. libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.5.18"
@@ -67,7 +67,7 @@ Começando projeto play-akka-spark-cassandra-java
     27. 		//Testar Spark
     28. 		SparkConf conf = new SparkConf(true)//
     29. 				.setAppName("MinhaApp")//
-    30. 				.setMaster("spark://meucomp.local:7077");
+    30. 				.setMaster("spark://meucomp.local:7077"); //Verificar a URL novamente
     31. 		JavaSparkContext sc = new JavaSparkContext(conf);
     32. 		List<Integer> data = Arrays.asList(1, 2, 3, 4, 5);
     33. 		JavaRDD<Integer> distData = sc.parallelize(data);
@@ -76,7 +76,7 @@ Começando projeto play-akka-spark-cassandra-java
     36. 		
     37. 		//Testar Akka
     38. 		ActorRef helloActor = system.actorOf(HelloActor.getProps());
-    39. 		return FutureConverters.toJava(ask(helloActor, msg, 2000))//
+    39. 		return FutureConverters.toJava(ask(helloActor, msg, 2000))//Timeout 2000ms
     40. 				.thenApply(response -> ok(actor.render((String) response)));
     41. 	}
     42. }
