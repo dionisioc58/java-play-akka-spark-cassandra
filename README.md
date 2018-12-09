@@ -5,15 +5,6 @@ Basic java project for integration with Play, Akka, Spark and Cassandra
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 5.2.7.2 (Linux)"/>
-	<meta name="created" content="2018-11-29T20:31:25.175100768"/>
-	<meta name="changed" content="2018-12-09T00:11:00.416057852"/>
-	<style type="text/css">
-		@page { margin: 2cm }
-		p { margin-bottom: 0.25cm; line-height: 120% }
-		a:link { so-language: zxx }
-	</style>
 </head>
 <body lang="pt-BR" dir="ltr">
 <ol>
