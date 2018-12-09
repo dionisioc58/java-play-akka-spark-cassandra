@@ -9,8 +9,30 @@ Basic java project for integration with Play, Akka, Spark and Cassandra
 <body lang="pt-BR" dir="ltr">
 <ol>
 	<p align="center" style="margin-bottom: 0cm; line-height: 100%"><font size="4" style="font-size: 16pt"><b>Começando
-	projeto play-akka-spark-cassandra-java</b></font></p>
+	projeto java-play-akka-spark-cassandra</b></font></p>
 </ol>
+<p align="center" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%">Caso
+queira executar este projeto, faça:</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%">	git
+clone;</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%">	entre
+na pasta java-play-akka-spark-cassandra</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%">	execute:
+sbt run</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%">Ou,</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%">Siga
+as orientações abaixo:</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%">	Instale
+o Cassandra (http://cassandra.apache.org/download/);</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%">	Baixe
+e descompacte o spark (https://spark.apache.org/downloads.html);</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%">	Instale
+o sbt (https://www.scala-sbt.org/download.html);</p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%">	E
+continue o roteiro:</p>
 <p align="center" style="margin-bottom: 0cm; line-height: 100%"><br/>
 
 </p>
@@ -57,13 +79,15 @@ Basic java project for integration with Play, Akka, Spark and Cassandra
 			<font size="3" style="font-size: 12pt">CREATE TABLE teste.users
 			(user_id int, fname TEXT, lname TEXT, PRIMARY KEY (user_id) );</font></p>
 			<li/>
-<p style="margin-bottom: 0cm; line-height: 100%"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">INSERT
-			INTO teste.users(user_id, fname, lname) VALUES(1, 'Nome1',
-			'Sobrenome1');</span></font></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+			<font size="3" style="font-size: 12pt">INSERT INTO
+			teste.users(user_id, fname, lname) VALUES(1, 'Nome1',
+			'Sobrenome1');</font></p>
 			<li/>
-<p style="margin-bottom: 0cm; line-height: 100%"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">INSERT
-			INTO teste.users(user_id, fname, lname) VALUES(2, 'Nome2',
-			'Sobrenome2');</span></font></p>
+<p style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+			<font size="3" style="font-size: 12pt">INSERT INTO
+			teste.users(user_id, fname, lname) VALUES(2, 'Nome2',
+			'Sobrenome2');</font></p>
 		</ol>
 	</ol>
 	<li/>
@@ -105,7 +129,7 @@ Basic java project for integration with Play, Akka, Spark and Cassandra
 &quot;com.datastax.cassandra&quot; % &quot;cassandra-driver-mapping&quot;
 % &quot;3.6.0&quot;</font></p>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	Alterar a versão do scala:</font></p>
+<font size="3" style="font-size: 12pt">Alterar a versão do scala:</font></p>
 <ol>
 	<ol>
 		<ol start="0">
@@ -213,7 +237,7 @@ scala.compat.java8.FutureConverters;</font></p>
 <font size="3" style="font-size: 12pt">public class ActorController
 extends Controller {</font></p>
 <p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	static private ActorSystem
+<font size="3" style="font-size: 12pt">static private ActorSystem
 system;</font></p>
 <p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 <font size="3" style="font-size: 12pt">@Inject</font></p>
@@ -221,14 +245,14 @@ system;</font></p>
 <font size="3" style="font-size: 12pt">public
 ActorController(ActorSystem system) {</font></p>
 <p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	this.system = system;</font></p>
+<font size="3" style="font-size: 12pt">this.system = system;</font></p>
 <p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 <font size="3" style="font-size: 12pt">}</font></p>
 <p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 <font size="3" style="font-size: 12pt">public CompletionStage&lt;Result&gt;
 meuMetodo(String msg) {</font></p>
 <p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	//Testar Spark</font></p>
+<font size="3" style="font-size: 12pt">//Testar Spark</font></p>
 <p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 <font size="3" style="font-size: 12pt">SparkConf conf = new
 SparkConf(true)//</font></p>
@@ -331,7 +355,7 @@ extends AbstractActor {</font></p>
 <font size="3" style="font-size: 12pt">public static Props getProps()
 {</font></p>
 <p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	return
+<font size="3" style="font-size: 12pt">return
 Props.create(HelloActor.class);</font></p>
 <p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 <font size="3" style="font-size: 12pt">}</font></p>
@@ -379,11 +403,11 @@ iterator = results.iterator(); iterator.hasNext();) {</font></p>
 <p align="justify" style="margin-left: 6.25cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 <font size="3" style="font-size: 12pt">System.out.println(line);</font></p>
 <p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	}</font></p>
+<font size="3" style="font-size: 12pt">}</font></p>
 <p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">		sender().tell(line, self());</font></p>
+<font size="3" style="font-size: 12pt">sender().tell(line, self());</font></p>
 <p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	}).build();</font></p>
+<font size="3" style="font-size: 12pt">}).build();</font></p>
 <p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 <font size="3" style="font-size: 12pt">}</font></p>
 <p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
