@@ -25,15 +25,15 @@ Basic java project for integration with Play, Akka, Spark and Cassandra
 		<font size="3" style="font-size: 12pt">Executar no prompt:
 		./pasta_do_spark/sbin/start-master.sh</font></p>
 		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">//Para verificar endereço e
-		porta do servidor após o comando acima, acessar:
-		<a href="http://localhost:8080/">http://localhost:8080</a> (Tem uma
-		URL com o link que será servido pelo spark.</font></p>
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%">
+		<font size="3" style="font-size: 12pt"><span style="font-weight: normal">//Para
+		verificar endereço e porta do servidor após o comando acima,
+		acessar: <a href="http://localhost:8080/">http://localhost:8080</a>
+		(Tem uma URL com o link que será servido pelo spark.</span></font></p>
 		<li/>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 		<font size="3" style="font-size: 12pt">Executar no prompt:
-		./pasta_do_spark/sbin/start-slave.sh spark://localhost:7077 
+		./pasta_do_spark/sbin/start-slave.sh spark://localhost:7077
 		//Trocar localhost:7077 pela URL encontrada no link acima</font></p>
 	</ol>
 	<li/>
@@ -58,15 +58,12 @@ Basic java project for integration with Play, Akka, Spark and Cassandra
 			(user_id int, fname TEXT, lname TEXT, PRIMARY KEY (user_id) );</font></p>
 			<li/>
 <p style="margin-bottom: 0cm; line-height: 100%"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">INSERT
-			INTO </span></font><font size="3" style="font-size: 12pt"><span style="font-weight: normal">teste.</span></font><font size="3" style="font-size: 12pt"><span style="font-weight: normal">users(user_id,
-			fname, lname) VALUES(1, '</span></font><font size="3" style="font-size: 12pt"><span style="font-weight: normal">Nome1</span></font><font size="3" style="font-size: 12pt"><span style="font-weight: normal">',
-			'</span></font><font size="3" style="font-size: 12pt"><span style="font-weight: normal">Sobrenome1</span></font><font size="3" style="font-size: 12pt"><span style="font-weight: normal">');</span></font></p>
+			INTO teste.users(user_id, fname, lname) VALUES(1, 'Nome1',
+			'Sobrenome1');</span></font></p>
 			<li/>
 <p style="margin-bottom: 0cm; line-height: 100%"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">INSERT
-			INTO </span></font><font size="3" style="font-size: 12pt"><span style="font-weight: normal">teste.</span></font><font size="3" style="font-size: 12pt"><span style="font-weight: normal">users(user_id,
-			fname, lname) VALUES(</span></font><font size="3" style="font-size: 12pt"><span style="font-weight: normal">2</span></font><font size="3" style="font-size: 12pt"><span style="font-weight: normal">,
-			'</span></font><font size="3" style="font-size: 12pt"><span style="font-weight: normal">Nome2</span></font><font size="3" style="font-size: 12pt"><span style="font-weight: normal">',
-			'</span></font><font size="3" style="font-size: 12pt"><span style="font-weight: normal">Sobrenome2</span></font><font size="3" style="font-size: 12pt"><span style="font-weight: normal">');</span></font></p>
+			INTO teste.users(user_id, fname, lname) VALUES(2, 'Nome2',
+			'Sobrenome2');</span></font></p>
 		</ol>
 	</ol>
 	<li/>
@@ -152,8 +149,10 @@ Basic java project for integration with Play, Akka, Spark and Cassandra
 	<ol>
 		<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 		<font size="3" style="font-size: 12pt">akka {</font></p>
-		<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		  <font size="3" style="font-size: 12pt">loglevel = &quot;ERROR&quot;</font></p>
+		<ol start="0">
+			<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+			<font size="3" style="font-size: 12pt">loglevel = &quot;ERROR&quot;</font></p>
+		</ol>
 		<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 		<font size="3" style="font-size: 12pt">}</font></p>
 		<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
@@ -204,7 +203,7 @@ org.apache.spark.SparkConf;</font></p>
 <p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 <font size="3" style="font-size: 12pt">import
 scala.compat.java8.FutureConverters;</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; line-height: 100%">
 <br/>
 
 </p>
@@ -216,59 +215,53 @@ extends Controller {</font></p>
 <p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 <font size="3" style="font-size: 12pt">	static private ActorSystem
 system;</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	@Inject</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	public
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">@Inject</font></p>
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">public
 ActorController(ActorSystem system) {</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">		this.system = system;</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	}</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	public
-CompletionStage&lt;Result&gt; meuMetodo(String msg) {</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">		//Testar Spark</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">		SparkConf conf = new
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	this.system = system;</font></p>
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">}</font></p>
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">public CompletionStage&lt;Result&gt;
+meuMetodo(String msg) {</font></p>
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	//Testar Spark</font></p>
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">SparkConf conf = new
 SparkConf(true)//</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">				.setAppName(&quot;MinhaApp&quot;)//</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">				.setMaster(&quot;spark://meucomp.local:7077&quot;);</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">		JavaSparkContext sc = new
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">.setAppName(&quot;MinhaApp&quot;)//</font></p>
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">.setMaster(&quot;spark://meucomp.local:7077&quot;);</font></p>
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">JavaSparkContext sc = new
 JavaSparkContext(conf);</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">		List&lt;Integer&gt; data =
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">List&lt;Integer&gt; data =
 Arrays.asList(1, 2, 3, 4, 5);</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">		JavaRDD&lt;Integer&gt;
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">JavaRDD&lt;Integer&gt;
 distData = sc.parallelize(data);</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">		System.out.println(distData);</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">		sc.close();</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">		</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">		//Testar Akka</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">		ActorRef helloActor =
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">System.out.println(distData);</font></p>
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">sc.close();</font></p>
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">//Testar Akka</font></p>
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">ActorRef helloActor =
 system.actorOf(HelloActor.getProps());</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">		return
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">return
 FutureConverters.toJava(ask(helloActor, msg, 2000))//</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">				.thenApply(response -&gt;
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">.thenApply(response -&gt;
 ok(actor.render((String) response)));</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	}</font></p>
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">}</font></p>
 <p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 <font size="3" style="font-size: 12pt">}</font></p>
 <ol start="11">
@@ -284,7 +277,7 @@ ok(actor.render((String) response)));</font></p>
 		<li/>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 		<font size="3" style="font-size: 12pt">Exibir o parâmetro em algum
-		lugar (exemplo):  &lt;h2&gt;@msg&lt;/h2&gt;</font></p>
+		lugar (exemplo): &lt;h2&gt;@msg&lt;/h2&gt;</font></p>
 	</ol>
 	<li/>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
@@ -293,8 +286,8 @@ ok(actor.render((String) response)));</font></p>
 	<ol>
 		<li/>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-		<font size="3" style="font-size: 12pt">GET
-			/actor/*msg		controllers.ActorController.meuMetodo(msg: String)</font></p>
+		<font size="3" style="font-size: 12pt">GET /actor/*msg
+		controllers.ActorController.meuMetodo(msg: String)</font></p>
 	</ol>
 	<li/>
 <p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
@@ -303,7 +296,7 @@ ok(actor.render((String) response)));</font></p>
 </ol>
 <p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 <font size="3" style="font-size: 12pt">package controllers;</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; line-height: 100%">
 <br/>
 
 </p>
@@ -323,87 +316,76 @@ com.datastax.driver.core.ResultSet;</font></p>
 com.datastax.driver.core.Row;</font></p>
 <p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 <font size="3" style="font-size: 12pt">import java.util.Iterator;</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; line-height: 100%">
 <br/>
 
 </p>
 <p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 <font size="3" style="font-size: 12pt">public class HelloActor
 extends AbstractActor {</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	private Cluster cluster;</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	private Session session;</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	public static Props
-getProps() {</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-        <font size="3" style="font-size: 12pt">return
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">private Cluster cluster;</font></p>
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">private Session session;</font></p>
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">public static Props getProps()
+{</font></p>
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	return
 Props.create(HelloActor.class);</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-    <font size="3" style="font-size: 12pt">}</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	public HelloActor() {</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">		cluster =
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">}</font></p>
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">public HelloActor() {</font></p>
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">cluster =
 Cluster.builder().addContactPoint(&quot;127.0.0.1&quot;).build();
 //Alterar 127.0.0.1 pelo endereço IP do servidor Cassandra.</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-        <font size="3" style="font-size: 12pt">session =
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">session =
 cluster.connect(&quot;teste&quot;); //Utilizar o nome do keyspace
 criado no Cassandra</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	}</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">}</font></p>
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; line-height: 100%">
 <br/>
 
 </p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	@Override</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">	public Receive
-createReceive() {</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-<font size="3" style="font-size: 12pt">		return receiveBuilder()//</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-                <font size="3" style="font-size: 12pt">.match(String.class,
-s -&gt; {</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-                <font size="3" style="font-size: 12pt">	ResultSet
-results = session.execute(&quot;SELECT * FROM users WHERE user_id = &quot;
-+ s);</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-                    <font size="3" style="font-size: 12pt">String
-line = &quot;&quot;;</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-                    <font size="3" style="font-size: 12pt">for
-(Iterator&lt;Row&gt; iterator = results.iterator();
-iterator.hasNext();) {</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-                        <font size="3" style="font-size: 12pt">Row
-row = iterator.next();</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-                        <font size="3" style="font-size: 12pt">line
-+= row.getString(&quot;fname&quot;) + &quot; &quot; +
-row.getString(&quot;lname&quot;)</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-                                <font size="3" style="font-size: 12pt">+
-&quot;\n&quot;;</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-                        <font size="3" style="font-size: 12pt">System.out.println(line);</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-                    <font size="3" style="font-size: 12pt">}</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-                    <font size="3" style="font-size: 12pt">sender().tell(line,
-self());</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
-                <font size="3" style="font-size: 12pt">}).build();</font></p>
-<p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">@Override</font></p>
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">public Receive createReceive()
+{</font></p>
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">return receiveBuilder()//</font></p>
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">.match(String.class, s -&gt; {</font></p>
+<p align="justify" style="margin-left: 5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">ResultSet results =
+session.execute(&quot;SELECT * FROM users WHERE user_id = &quot; +
+s);</font></p>
+<p align="justify" style="margin-left: 5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">String line = &quot;&quot;;</font></p>
+<p align="justify" style="margin-left: 5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">for (Iterator&lt;Row&gt;
+iterator = results.iterator(); iterator.hasNext();) {</font></p>
+<p align="justify" style="margin-left: 6.25cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">Row row = iterator.next();</font></p>
+<p align="justify" style="margin-left: 6.25cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">line += row.getString(&quot;fname&quot;)
++ &quot; &quot; + row.getString(&quot;lname&quot;)</font></p>
+<p align="justify" style="margin-left: 6.25cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">+ &quot;\n&quot;;</font></p>
+<p align="justify" style="margin-left: 6.25cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">System.out.println(line);</font></p>
+<p align="justify" style="margin-left: 3.75cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 <font size="3" style="font-size: 12pt">	}</font></p>
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">		sender().tell(line, self());</font></p>
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">	}).build();</font></p>
+<p align="justify" style="margin-left: 2.5cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<font size="3" style="font-size: 12pt">}</font></p>
 <p align="justify" style="margin-left: 1.27cm; margin-bottom: 0cm; font-weight: normal; line-height: 100%">
 <font size="3" style="font-size: 12pt">}</font></p>
 <ol start="14">
@@ -416,13 +398,13 @@ self());</font></p>
 		<font size="3" style="font-size: 12pt"><b>No console do sbt digitar
 		“run”</b></font></p>
 		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%">
 		<font size="3" style="font-size: 12pt"><b>Abrir uma página:
 		<a href="http://localhost:9000/">http://localhost:9000</a></b></font></p>
 		<li/>
-<p align="justify" style="margin-bottom: 0cm; font-weight: normal; line-height: 100%">
+<p align="justify" style="margin-bottom: 0cm; line-height: 100%">
 		<font size="3" style="font-size: 12pt"><b>Abrir uma página:
-		<a href="http://localhost:9000/actor/1">http://localhost:9000/actor/</a></b><b><a href="http://localhost:9000/actor/1">1</a>
+		<a href="http://localhost:9000/actor/1">http://localhost:9000/actor/</a><a href="http://localhost:9000/actor/1">1</a>
 		//Onde 1 é o id de um usuário do banco</b></font></p>
 		<li/>
 <p align="justify" style="margin-bottom: 0cm; line-height: 100%">
